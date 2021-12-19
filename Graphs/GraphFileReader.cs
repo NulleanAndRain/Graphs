@@ -20,7 +20,7 @@ namespace Graphs
             foreach (var line in lines)
             {
                 int j = 0;
-                foreach (var weightStr in line.Split(_separators, StringSplitOptions.None)) {
+                foreach (var weightStr in line.Split(_separators, StringSplitOptions.RemoveEmptyEntries)) {
                     if (double.TryParse(weightStr, out var w))
                     {
                         graph.Matrix[i][j] = w;
@@ -46,7 +46,7 @@ namespace Graphs
 
             foreach (var line in lines.Skip(1))
             {
-                var parts = line.Split(_separators, StringSplitOptions.None);
+                var parts = line.Split(_separators, StringSplitOptions.RemoveEmptyEntries);
                 if (int.TryParse(parts[0], out int i) && int.TryParse(parts[1], out int j))
                 {
                     double weight = 0;

@@ -105,5 +105,34 @@ namespace Graphs
             if (vert1 >= VerticesCout || vert2 >= VerticesCout) return 0;
             return Matrix[vert1][vert2];
         }
+        public List<(int, int, double)> GetAllEdges()
+        {
+            var edges = new List<(int, int, double)>();
+            int count = Matrix.Count;
+
+            if (isOriented)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < count; i++)
+                    {
+                        if (i == j) continue;
+                        if (Matrix[i][j] != 0) edges.Add((i, j, Matrix[i][j]));
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < count; j++)
+                    {
+                        if (i == j) break;
+                        if (Matrix[i][j] != 0) edges.Add((i, j, Matrix[i][j]));
+                    }
+                }
+            }
+            return edges;
+        }
     }
 }
