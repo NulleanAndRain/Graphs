@@ -10,6 +10,15 @@ namespace Graphs
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Для получения списка команд введите: Команды");
+            Console.WriteLine("Для выхода из программы введите: Выход");
+            Console.WriteLine("Для начала работы с графом введите: Загрузка адрес");
+            Console.ReadLine();
+
+
+
         }
+
+        
     }
 }
