@@ -42,6 +42,7 @@ namespace Graphs
             vert2--;
             while (vert1 >= VerticesCout || vert2 >= VerticesCout)
                 AddVertex();
+            Matrix[vert2][vert1] = weight;
             Matrix[vert1][vert2] = weight;
         }
 
