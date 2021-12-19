@@ -31,6 +31,9 @@ namespace Graphs
                 Matrix[i].Add(0);
             }
             Matrix.Add(new List<double>(n + 1));
+            for (int j = 0; j <= n; j++) {
+                Matrix[n].Add(0);
+            }
         }
 
         public void AddEdge(int vert1, int vert2, double weight)
