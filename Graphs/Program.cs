@@ -53,9 +53,10 @@ namespace Graphs
                                         }
                                     default: break;
                                 }
+                                Console.WriteLine("Граф загружен");
+                                PauseConsole();
                             }
                             while (loop);
-                            
                             break;
                         }
                     case "2":
@@ -111,6 +112,7 @@ namespace Graphs
                     case "5":
                         {
                             Console.WriteLine(graph.GetEdgesCount());
+                            PauseConsole();
                             break;
                         }
                     case "6":
@@ -130,6 +132,7 @@ namespace Graphs
                             }
                             while (!int.TryParse(vertex, out v2));
                             Console.WriteLine(graph.GetEgdeWeight(v1, v2));
+                            PauseConsole();
                             break;
                         }
                     case "7":
@@ -166,6 +169,8 @@ namespace Graphs
                                         }
                                     default: break;
                                 }
+                                Console.WriteLine("Сохранено");
+                                PauseConsole();
                             }
                             while (loop);
                             break;
@@ -182,19 +187,21 @@ namespace Graphs
                                 builder.Append(Environment.NewLine);
                             }
                             Console.WriteLine(builder.ToString());
-                            Console.WriteLine("Введите что-нибудь чтобы продолжить");
-                            Console.ReadKey();
+                            PauseConsole();
                             break;
                         }
                     case "9": 
                         Environment.Exit(0); 
                         break;
                     default: break;
-
                 }
             }
-      
+        }
 
+        static void PauseConsole()
+        {
+            Console.WriteLine("Введите что-нибудь чтобы продолжить");
+            Console.ReadKey();
         }
 
         static string GetMenu()
