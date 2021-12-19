@@ -29,6 +29,23 @@ namespace Graphs
             Matrix.Add(new List<double>(n + 1));
         }
 
+        public void AddEdge(int vert1, int vert2, double weight)
+        {
+            vert1--;
+            vert2--;
+            while (vert1 >= VerticesCout || vert2 >= VerticesCout)
+                AddVertex();
+            Matrix[vert1][vert2] = weight;
+        }
+
+        public void RemoveEdge(int vert1, int vert2)
+        {
+            vert1--;
+            vert2--;
+            if (vert1 >= VerticesCout || vert2 >= VerticesCout) return;
+            Matrix[vert1][vert2] = 0;
+        }
+
         public int VerticesCout => Matrix.Count;
 
         public bool AreVerticesConnected(int vertex1, int vertex2) =>
@@ -65,7 +82,7 @@ namespace Graphs
                         if (Matrix[i][j] != 0) edges++;
                     }
                 }
-            } 
+            }
             else
             {
                 for (int i = 0; i < count; i++)
@@ -79,6 +96,14 @@ namespace Graphs
 
             }
             return edges;
+        }
+
+        public double GetEgdeWeight(int vert1, int vert2)
+        {
+            vert1--;
+            vert2--;
+            if (vert1 >= VerticesCout || vert2 >= VerticesCout) return 0;
+            return Matrix[vert1][vert2];
         }
     }
 }
