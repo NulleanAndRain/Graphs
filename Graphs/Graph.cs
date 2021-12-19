@@ -31,8 +31,54 @@ namespace Graphs
 
         public int VerticesCout => Matrix.Count;
 
-        public bool AreVerticesConnected(int vertex1, int vertex2) => 
+        public bool AreVerticesConnected(int vertex1, int vertex2) =>
             Matrix[vertex1][vertex2] != 0 || Matrix[vertex2][vertex1] != 0;
-        
+
+        public bool isOriented
+        {
+            get
+            {
+                int count = Matrix.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < count; j++)
+                    {
+                        if (i == j) break;
+                        if (Matrix[i][j] != Matrix[j][i]) return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        public int GetEdgesCount()
+        {
+            int count = Matrix.Count;
+            int edges = 0;
+            if (isOriented)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < count; i++)
+                    {
+                        if (i == j) continue;
+                        if (Matrix[i][j] != 0) edges++;
+                    }
+                }
+            } 
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < count; j++)
+                    {
+                        if (i == j) break;
+                        if (Matrix[i][j] != 0) edges++;
+                    }
+                }
+
+            }
+            return edges;
+        }
     }
 }
