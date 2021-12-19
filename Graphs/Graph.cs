@@ -10,21 +10,25 @@ namespace Graphs
     {
         public List<List<double>> Matrix { get; private set; }
 
-        public Graph(int vertisesCout = 0)
+        public Graph(int vertisesCout = 1)
         {
-            Matrix = new List<List<double>>(vertisesCout);
+            Matrix = new List<List<double>>();
             for (int i = 0; i < vertisesCout; i++)
             {
-                Matrix[i] = new List<double>(vertisesCout);
+                Matrix.Add(new List<double>(vertisesCout));
+                for (int j = 0; j < vertisesCout; j++)
+                {
+                    Matrix[i].Add(0);
+                }
             }
         }
 
         public void AddVertex()
         {
             var n = Matrix.Count;
-            foreach (var l in Matrix)
+            for (int i = 0; i < n; i++)
             {
-                l.Add(0);
+                Matrix[i].Add(0);
             }
             Matrix.Add(new List<double>(n + 1));
         }

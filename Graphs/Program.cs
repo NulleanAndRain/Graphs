@@ -170,7 +170,23 @@ namespace Graphs
                             while (loop);
                             break;
                         }
-                    case "8": 
+                    case "8":
+                        {
+                            var builder = new StringBuilder();
+                            foreach (var line in graph.Matrix)
+                            {
+                                foreach (var w in line)
+                                {
+                                    builder.Append(w.ToString("F4")).Append(' ');
+                                }
+                                builder.Append(Environment.NewLine);
+                            }
+                            Console.WriteLine(builder.ToString());
+                            Console.WriteLine("Введите что-нибудь чтобы продолжить");
+                            Console.ReadKey();
+                            break;
+                        }
+                    case "9": 
                         Environment.Exit(0); 
                         break;
                     default: break;
@@ -191,7 +207,8 @@ namespace Graphs
             Console.WriteLine(" 5 - Получить количество рёбер");
             Console.WriteLine(" 6 - Получить вес ребра");
             Console.WriteLine(" 7 - Сохранить граф");
-            Console.WriteLine(" 8 - Выход");
+            Console.WriteLine(" 8 - Вывести матрицу смежности");
+            Console.WriteLine(" 9 - Выход");
 
             return Console.ReadLine(); 
         }
