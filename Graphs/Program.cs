@@ -61,6 +61,8 @@ namespace Graphs
                     case "2":
                         {
                             graph.AddVertex();
+                            Console.WriteLine("Вершина добавлена");
+                            Console.ReadLine();
                             break;
                         }
                     case "3":
@@ -87,6 +89,8 @@ namespace Graphs
                             }
                             while (!double.TryParse(vertex, out weight));
                             graph.AddEdge(v1, v2, weight);
+                            Console.WriteLine("Ребро добавлено");
+                            Console.ReadLine();
                             break;
                         }
                     case "4":
@@ -106,11 +110,14 @@ namespace Graphs
                             }
                             while (!int.TryParse(vertex, out v2));
                             graph.RemoveEdge(v1, v2);
+                            Console.WriteLine("Ребро удалено");
+                            Console.ReadLine();
                             break;
                         }
                     case "5":
                         {
-                            Console.WriteLine(graph.GetEdgesCount());
+                            Console.WriteLine("Количество рёбер = " + graph.GetEdgesCount());
+                            Console.ReadLine();
                             break;
                         }
                     case "6":
@@ -129,7 +136,8 @@ namespace Graphs
                                 vertex = Console.ReadLine();
                             }
                             while (!int.TryParse(vertex, out v2));
-                            Console.WriteLine(graph.GetEgdeWeight(v1, v2));
+                            Console.WriteLine("Вес = " + graph.GetEgdeWeight(v1, v2));
+                            Console.ReadLine();
                             break;
                         }
                     case "7":
@@ -168,6 +176,8 @@ namespace Graphs
                                 }
                             }
                             while (loop);
+                            Console.WriteLine("Сохранено успешно");
+                            Console.ReadLine();
                             break;
                         }
                     case "8":
