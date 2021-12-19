@@ -111,7 +111,7 @@ namespace Graphs
                         }
                     case "5":
                         {
-                            Console.WriteLine(graph.GetEdgesCount());
+                            Console.WriteLine("Количество рёбер = " + graph.GetEdgesCount());
                             PauseConsole();
                             break;
                         }
@@ -131,7 +131,7 @@ namespace Graphs
                                 vertex = Console.ReadLine();
                             }
                             while (!int.TryParse(vertex, out v2));
-                            Console.WriteLine(graph.GetEgdeWeight(v1, v2));
+                            Console.WriteLine("Вес = " + graph.GetEgdeWeight(v1, v2));
                             PauseConsole();
                             break;
                         }
@@ -186,6 +186,7 @@ namespace Graphs
                                 }
                                 builder.Append(Environment.NewLine);
                             }
+                            Console.WriteLine("Матрица смежности графа: ");
                             Console.WriteLine(builder.ToString());
                             PauseConsole();
                             break;
@@ -200,7 +201,7 @@ namespace Graphs
 
         static void PauseConsole()
         {
-            Console.WriteLine("Введите что-нибудь чтобы продолжить");
+            Console.WriteLine("Введите что-нибудь чтобы продолжить...");
             Console.ReadKey();
         }
 
