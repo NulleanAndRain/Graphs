@@ -15,7 +15,7 @@ namespace Graphs
         {
             if (!File.Exists(path)) return new Graph();
             var lines = File.ReadAllLines(path);
-            var graph = new Graph(lines.Length);
+            var graph = new Graph(lines.Length + 1);
             int i = 0;
             foreach (var line in lines)
             {
@@ -51,7 +51,7 @@ namespace Graphs
                 {
                     double weight = 0;
                     if (double.TryParse(parts[2], out var w)) weight = w;
-                    graph.Matrix[i][j] = weight;
+                    graph.AddEdge(i, j, weight);
                 }
             }
 

@@ -34,7 +34,7 @@ namespace Graphs
         {
             try
             {
-                var builder = new StringBuilder(graph.VerticesCout);
+                var builder = new StringBuilder(graph.VerticesCout.ToString());
                 builder.Append(Environment.NewLine);
                 foreach (var edge in graph.GetAllEdges())
                 {

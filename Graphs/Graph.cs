@@ -125,7 +125,7 @@ namespace Graphs
                     for (int j = 0; j < count; i++)
                     {
                         if (i == j) continue;
-                        if (Matrix[i][j] != 0) edges.Add((i, j, Matrix[i][j]));
+                        if (Matrix[i][j] != 0) edges.Add((i + 1, j + 1, Matrix[i][j]));
                     }
                 }
             }
@@ -136,7 +136,7 @@ namespace Graphs
                     for (int j = 0; j < count; j++)
                     {
                         if (i == j) break;
-                        if (Matrix[i][j] != 0) edges.Add((i, j, Matrix[i][j]));
+                        if (Matrix[i][j] != 0) edges.Add((i + 1, j + 1, Matrix[i][j]));
                     }
                 }
             }
