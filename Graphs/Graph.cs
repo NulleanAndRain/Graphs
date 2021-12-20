@@ -9,6 +9,8 @@ namespace Graphs
     internal class Graph
     {
         public List<List<double>> Matrix { get; private set; }
+        public List<List<double>> MinPath { get; private set; }
+        
 
         public Graph(int vertisesCout = 1)
         {
@@ -141,6 +143,37 @@ namespace Graphs
                 }
             }
             return edges;
+        }
+        public double ShortestWay(int vert1, int vert2) // форд белман
+        {
+            vert1--;
+            vert2--;
+            var minWay = 0;
+            int count = Matrix.Count;
+            MinPath = new List<List<double>>();
+
+            for (int i = 0; i < count; i++)
+            {
+                MinPath.Add(new List<double>(count));
+                for (int j = 0; j < count; j++)
+                {
+                    MinPath[i] = double.PositiveInfinity;
+                }
+            }
+
+
+            for (int i = 0; i < count-1; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    if (Matrix[i][j] != 0) //если вершину не посещали
+                        if (MinPath[j] > MinPath[i] + Matrix[i][j])
+                            MinPath[j] = MinPath[i] + Matrix[i][j];
+                }
+            }
+
+
+            return minWay;
         }
     }
 }
