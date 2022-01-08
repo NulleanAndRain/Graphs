@@ -191,7 +191,26 @@ namespace Graphs
                             PauseConsole();
                             break;
                         }
-                    case "9": 
+                    case "9":
+                        {
+                            string vertex;
+                            int v1, v2;
+                            do
+                            {
+                                Console.WriteLine("Введите номер первой вершины");
+                                vertex = Console.ReadLine();
+                            }
+                            while (!int.TryParse(vertex, out v1));
+                            do
+                            {
+                                Console.WriteLine("Введите номер второй вершины");
+                                vertex = Console.ReadLine();
+                            }
+                            while (!int.TryParse(vertex, out v2));
+                            //Console.WriteLine(graph.ShortestWay(v1, v2));
+                            break;
+                        }
+                    case "0": 
                         Environment.Exit(0); 
                         break;
                     default: break;
@@ -216,7 +235,8 @@ namespace Graphs
             Console.WriteLine(" 6 - Получить вес ребра");
             Console.WriteLine(" 7 - Сохранить граф");
             Console.WriteLine(" 8 - Вывести матрицу смежности");
-            Console.WriteLine(" 9 - Выход");
+            Console.WriteLine(" 9 - Кратчайший путь (алгоритм Форд-Белмана)");
+            Console.WriteLine(" 0 - Выход");
 
             return Console.ReadLine(); 
         }
